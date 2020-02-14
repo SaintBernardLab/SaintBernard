@@ -1,0 +1,12 @@
+[Tests]
+  [./testreadpropertyfile]
+    type = 'Exodiff'
+    input = 'readParameterField.i'
+    exodiff = 'readParameterField_out.e'
+  [../]
+  [./testreadpropertyfile_3D]
+    type = 'Exodiff'
+    input = 'readParameterField_3D.i'
+    exodiff = 'readParameterField_3D_out.e'
+  [../]
+[]
