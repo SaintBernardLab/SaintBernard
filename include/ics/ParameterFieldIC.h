@@ -25,7 +25,7 @@ public:
   virtual Real value(const Point & p) override;
 
 private:
-  VariableField _stoch_field;
+  VariableField _var_field;
 };
 
 #endif // PARAMETERFIELDIC_H

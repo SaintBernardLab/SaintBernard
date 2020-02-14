@@ -13,12 +13,12 @@ validParams<ParameterFieldIC>()
 }
 
 ParameterFieldIC::ParameterFieldIC(const InputParameters & parameters)
-  : InitialCondition(parameters), _stoch_field(getParam<std::string>("file_name"))
+  : InitialCondition(parameters), _var_field(getParam<std::string>("file_name"))
 {
 }
 
 Real
 ParameterFieldIC::value(const Point & /*p*/)
 {
-  return _stoch_field.value(_current_elem->centroid());
+  return _var_field.value(_current_elem->centroid());
 }

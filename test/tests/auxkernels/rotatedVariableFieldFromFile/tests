@@ -1,0 +1,12 @@
+[Tests]
+  [./testreadpropertyfile_in_rotated_mesh]
+    type = 'Exodiff'
+    input = 'readRotatedParameterField.i'
+    exodiff = 'readRotatedParameterField_out.e'
+  [../]
+  [./error_projection_parameterfield_onto_3D_mesh]
+    type = 'RunException'
+    input = 'error_readRotatedParameterField.i'
+    expect_err = 'The method only works for 2D objects.'
+  [../]
+[]
