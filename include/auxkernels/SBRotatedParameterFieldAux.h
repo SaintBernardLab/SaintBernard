@@ -1,21 +1,21 @@
 
-#ifndef ROTATEDPARAMETERFIELDAUX_H
-#define ROTATEDPARAMETERFIELDAUX_H
+#ifndef SBROTATEDPARAMETERFIELDAUX_H
+#define SBROTATEDPARAMETERFIELDAUX_H
 
 #include "AuxKernel.h"
 #include "VariableField.h"
 
-class RotatedParameterFieldAux;
+class SBRotatedParameterFieldAux;
 // class MooseMesh;
 
 template <>
-InputParameters validParams<RotatedParameterFieldAux>();
+InputParameters validParams<SBRotatedParameterFieldAux>();
 
-class RotatedParameterFieldAux : public AuxKernel
+class SBRotatedParameterFieldAux : public AuxKernel
 {
 public:
-  RotatedParameterFieldAux(const InputParameters & parameters);
-  virtual ~RotatedParameterFieldAux(){};
+  SBRotatedParameterFieldAux(const InputParameters & parameters);
+  virtual ~SBRotatedParameterFieldAux(){};
 
 protected:
   virtual Real computeValue();
@@ -37,4 +37,4 @@ private:
   Point _mesh_origin;
 };
 
-#endif // ROTATEDPARAMETERFIELDAUX_H
+#endif // SBROTATEDPARAMETERFIELDAUX_H

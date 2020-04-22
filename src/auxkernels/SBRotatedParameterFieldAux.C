@@ -1,13 +1,13 @@
 
 #include "MooseMesh.h"
 #include "Assembly.h"
-#include "RotatedParameterFieldAux.h"
+#include "SBRotatedParameterFieldAux.h"
 
-registerMooseObject("SaintBernardApp", RotatedParameterFieldAux);
+registerMooseObject("SaintBernardApp", SBRotatedParameterFieldAux);
 
 template <>
 InputParameters
-validParams<RotatedParameterFieldAux>()
+validParams<SBRotatedParameterFieldAux>()
 {
   InputParameters params = validParams<AuxKernel>();
 
@@ -18,7 +18,7 @@ validParams<RotatedParameterFieldAux>()
   return params;
 }
 
-RotatedParameterFieldAux::RotatedParameterFieldAux(const InputParameters & parameters)
+SBRotatedParameterFieldAux::SBRotatedParameterFieldAux(const InputParameters & parameters)
   : AuxKernel(parameters),
     _var_field(getParam<std::string>("file_name")),
     _block_id(getParam<Real>("block_nb"))
@@ -91,7 +91,7 @@ RotatedParameterFieldAux::RotatedParameterFieldAux(const InputParameters & param
 }
 
 Real
-RotatedParameterFieldAux::computeValue()
+SBRotatedParameterFieldAux::computeValue()
 {
   // rotate point
   const Point pt = _current_elem->centroid();

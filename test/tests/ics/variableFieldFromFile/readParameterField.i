@@ -29,7 +29,7 @@
 
 [ICs]
   [./phi]
-    type = ParameterFieldIC
+    type = SBParameterFieldIC
     variable = phi
     file_name = ParameterField.txt
   [../]

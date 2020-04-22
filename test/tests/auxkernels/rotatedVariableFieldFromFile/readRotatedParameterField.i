@@ -37,7 +37,7 @@
 
 [AuxKernels]
   [./phi_field1]
-    type = RotatedParameterFieldAux
+    type = SBRotatedParameterFieldAux
     variable = phi
     file_name = ParameterField.txt
   [../]

@@ -1,10 +1,10 @@
-#include "ParameterFieldIC.h"
+#include "SBParameterFieldIC.h"
 
-registerMooseObject("SaintBernardApp", ParameterFieldIC);
+registerMooseObject("SaintBernardApp", SBParameterFieldIC);
 
 template <>
 InputParameters
-validParams<ParameterFieldIC>()
+validParams<SBParameterFieldIC>()
 {
   InputParameters params = validParams<InitialCondition>();
   params.addRequiredParam<std::string>("file_name",
@@ -12,13 +12,13 @@ validParams<ParameterFieldIC>()
   return params;
 }
 
-ParameterFieldIC::ParameterFieldIC(const InputParameters & parameters)
+SBParameterFieldIC::SBParameterFieldIC(const InputParameters & parameters)
   : InitialCondition(parameters), _var_field(getParam<std::string>("file_name"))
 {
 }
 
 Real
-ParameterFieldIC::value(const Point & /*p*/)
+SBParameterFieldIC::value(const Point & /*p*/)
 {
   return _var_field.value(_current_elem->centroid());
 }
