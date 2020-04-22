@@ -1,5 +1,4 @@
-# flow and solute transport along a fracture in a porous matrix
-# advective dominated flow in the fracture and diffusion into the porous matrix
+# convert aperture to permeability and test of porosity and permeability are applied correctly
 
 [Mesh]
   type = GeneratedMesh

@@ -1,0 +1,7 @@
+[Tests]
+  [./testDarcyVelocityOverAperture]
+    type = 'Exodiff'
+    input = 'SBFractureDarcyVelocityComponentLowerDimensional.i'
+    exodiff = 'SBFractureDarcyVelocityComponentLowerDimensional_out.e'
+  [../]
+[]

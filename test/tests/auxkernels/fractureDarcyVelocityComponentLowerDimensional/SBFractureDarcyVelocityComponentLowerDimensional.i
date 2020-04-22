@@ -1,13 +1,12 @@
-# convert aperture to permeability and test of porosity and permeability are applied correctly
-# transient test shows that permeability and porosity might be temporal variables
+# test darcy velocity in a 2D lower dimensional fracture with permeability computed from cubic law
 
 [Mesh]
   type = GeneratedMesh
   dim = 2
-  nx = 3
+  nx = 10
   ny = 3
   xmax = 1
-  ymax = 1
+  ymax = .3
 []
 
 [GlobalParams]
@@ -21,6 +20,14 @@
 []
 
 [AuxVariables]
+  [./velocity_x]
+    family = MONOMIAL
+    order = CONSTANT
+  [../]
+  [./velocity_y]
+    family = MONOMIAL
+    order = CONSTANT
+  [../]
   [./aperture]
     family = MONOMIAL
     order = CONSTANT
@@ -28,19 +35,30 @@
 []
 
 [AuxKernels]
-  [./get_coeff_c]
-    type = FunctionAux
-    variable = aperture
-    function = '6e-1*t'
-    execute_on = 'timestep_begin'
+  [./velocity_x]
+    type = SBFractureDarcyVelocityComponentLowerDimensional
+    variable = velocity_x
+    component = x
+    aperture = aperture
+  [../]
+  [./velocity_y]
+    type = SBFractureDarcyVelocityComponentLowerDimensional
+    variable = velocity_y
+    component = y
+    aperture = aperture
   [../]
 []
 
 [ICs]
   [./pp]
-    type = ConstantIC
+    type = FunctionIC
     variable = pp
-    value = 1e6
+    function = 'x-1'
+  [../]
+  [./apertureIC]
+    type = ConstantIC
+    variable = aperture
+    value = 1e-5
   [../]
 []
 
@@ -49,22 +67,17 @@
     type = PresetBC
     value = 0
     variable = pp
-    boundary = top
+    boundary = right
   [../]
   [./bottom]
     type = PresetBC
     value = 1
     variable = pp
-    boundary = bottom
+    boundary = left
   [../]
 []
 
 [Kernels]
-  [./mass0]
-    type = PorousFlowMassTimeDerivative
-    fluid_component = 0
-    variable = pp
-  [../]
   [./adv0]
     type = PorousFlowAdvectiveFlux
     fluid_component = 0
@@ -88,7 +101,7 @@
       bulk_modulus = 2e9
       density0 = 1000
       thermal_expansion = 0
-      viscosity = 1e-3
+      viscosity = 1e-4
     [../]
   [../]
 []
@@ -117,6 +130,11 @@
     type = PorousFlowRelativePermeabilityConst
     phase = 0
   [../]
+  [./relp_nodal]
+    type = PorousFlowRelativePermeabilityConst
+    at_nodes = true
+    phase = 0
+  [../]
   [./permeability]
     type = SBFractureFlowPermeabilityConstFromVar
     aperture = aperture
@@ -133,17 +151,13 @@
 []
 
 [Executioner]
-  type = Transient
+  type = Steady
   solve_type = NEWTON
-  dt = 0.001
-  end_time = 0.005
 []
 
 [Outputs]
   [./out]
     type = Exodus
     execute_on = 'timestep_end'
-    output_material_properties = true
-    show_material_properties = "PorousFlow_permeability_qp PorousFlow_porosity_qp"
   [../]
 []
