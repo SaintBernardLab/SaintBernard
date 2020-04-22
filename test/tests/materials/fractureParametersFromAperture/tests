@@ -1,0 +1,12 @@
+[Tests]
+  [./testAperture2Perm]
+    type = 'Exodiff'
+    input = 'FractureFlowPermeabilityConstFromVar.i'
+    exodiff = 'FractureFlowPermeabilityConstFromVar_out.e'
+  [../]
+  [./testAperture2Perm_transient]
+    type = 'Exodiff'
+    input = 'FractureFlowPermeabilityConstFromVar_transient.i'
+    exodiff = 'FractureFlowPermeabilityConstFromVar_transient_out.e'
+  [../]
+[]
