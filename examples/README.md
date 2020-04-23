@@ -6,7 +6,7 @@ The governing equations are solved with Kernels provided by the PorousFlow modul
 
 ### Single phase flow through a fracture with variable aperture
 
-The full input file is in [examples/flow-rough-fracture.i](examples/flow-rough-fracture.i)
+The full input file is in [flow-rough-fracture.i](flow-rough-fracture.i)
 
 This model computes fluid flow through a fracture with variable aperture.
 On the left side of the domain fluid is injected with a constant injection flow rate. On the right side of the domain the pressure is fixed, which results in a sink and fluid production.
@@ -68,7 +68,7 @@ Using the material `SBFractureFlowPermeabilityConstFromVar` the permeability is 
 ```
 ### Single phase flow and advective transport through a fracture with variable aperture
 
-The full input file is in [examples/flow-transport-rough-fracture.i](examples/flow-transport-rough-fracture.i)
+The full input file is in [flow-transport-rough-fracture.i](flow-transport-rough-fracture.i)
 
 Based in the setup described above advective transport of a tracer is added to the model.
 Here, the `PorousFlow` option `PorousFlowFluxLimitedTVDAdvection` is used to prevent numerical diffusion in the tracer transport computation.
