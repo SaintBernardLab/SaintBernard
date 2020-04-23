@@ -2,7 +2,7 @@ SaintBernard
 =====
 
 A MOOSE Application to model flow and transport through lower dimensional rough fractures.
-- *The governing equations are solved with the MOOSE PorousFlow module and a great documentation is given on: [https://mooseframework.org/modules/porous_flow/index.html](https://mooseframework.org/modules/porous_flow/index.html).*
+- *The governing equations are solved with the MOOSE PorousFlow module and a detailed documentation is given on: [https://mooseframework.org/modules/porous_flow/index.html](https://mooseframework.org/modules/porous_flow/index.html).*
 - *The focus of here is on the two-dimensional representation of fractures, which means in detail:*
   - *read in aperture fields from text files*
   - *apply aperture values to a 2D fracture domain and calculate permeability following the cubic law*
