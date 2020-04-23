@@ -24,7 +24,7 @@ In order to read aperture from a text file the `InitialCondition` `SBParameterFi
   [../]
 []
 ```
-The syntax of the parameter file should be as follows:
+The syntax of the parameter file should be as follows (the file used for this example is [ParameterField.txt](ParameterField.txt)):
 ```
 // property field
 nx = 2 , ny = 2 , nz = 1
