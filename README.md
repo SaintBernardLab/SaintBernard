@@ -31,3 +31,7 @@ To test if SaintBernard works fine on your system, please run the tests with the
 Here, the option for speedup is similar to above (e.g. `./run_tests -j8`).
 
 For more information see: [http://mooseframework.org](http://mooseframework.org)
+
+Contact
+---
+For contact please visit: [https://geg.ethz.ch/philipp-schaedle/](https://geg.ethz.ch/philipp-schaedle/)
